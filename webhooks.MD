@@ -1,9 +1,9 @@
 
-# ClientBase - Simplifique a Gestão de Clientes e Cobranças Recorrentes
+# Clientbase - Simplifique a Gestão de Clientes e Cobranças Recorrentes
 
-**ClientBase** oferece uma solução completa para quem precisa gerenciar clientes e cobranças de forma eficiente e automatizada. Com funcionalidades que vão desde o cadastro e assinatura digital de contratos até a emissão de notas fiscais e notificações automatizadas, a ClientBase garante uma gestão financeira simplificada e eficaz para diversos setores como escolas, academias, agências, contabilidade e SaaS.
+**Clientbase** oferece uma solução completa para quem precisa gerenciar clientes e cobranças de forma eficiente e automatizada. Com funcionalidades que vão desde o cadastro e assinatura digital de contratos até a emissão de notas fiscais e notificações automatizadas, a ClientBase garante uma gestão financeira simplificada e eficaz para diversos setores como escolas, academias, agências, contabilidade e SaaS.
 
-Para mais informações, visite nosso site: [ClientBase](https://clientbase.com.br).
+Para mais informações, visite nosso site: [Clientbase](https://clientbase.com.br).
 
 ---
 
@@ -33,61 +33,97 @@ Exemplo de payload para Billings:
   "event": "billing.paid",
   "payload": {
     "status": "paid",
-    "description": "",
-    "due_date": "2022-09-09",
-    "amount_billed": 150.0,
+    "description": "Pagamento referente à inscrição e consultoria avançada em estratégias de crescimento de negócios no segmento de tecnologia.",
+    "due_date": "2024-07-23",
+    "amount_billed": "1023.4",
     "interest_policy": "no_interest",
-    "discount_policy": "fixed",
-    "discount_days": 15,
-    "discount_amount": 10.0,
-    "created_at": "2022-08-16T00:04:27.521-03:00",
-    "updated_at": "2022-10-18T16:39:22.045-03:00",
-    "uuid": "54dc74ef-72c9-4d88-a444-3ef49c4513ad",
-    "recurrence_cycle": 13,
-    "dirty": true,
-    "payment_type": "boleto;credit_card",
-    "amount_paid": "0.0",
-    "date_paid": null,
+    "discount_policy": "no_discount",
+    "discount_days": 0,
+    "discount_amount": "0.0",
+    "created_at": "2024-07-23T21:01:39.428-03:00",
+    "updated_at": "2024-07-24T06:00:39.357-03:00",
+    "uuid": "d9e8a3c2-b45a-4a98-b9f7-f4b8d9c1a5ef",
+    "recurrence_cycle": 0,
+    "dirty": false,
+    "payment_type": "boleto;boleto_pix",
+    "amount_paid": "1023.4",
+    "date_paid": "2024-07-23",
     "antecipated": false,
     "issued": true,
     "viewed": false,
     "email_invoice_status": "no_state",
     "sms_invoice_status": "no_state",
-    "customer": {
-      "status": "active",
-      "name": "João da Silva",
-      "nickname": "João",
-      "document": "00000000000",
-      "email": "test@clientbase.com.br",
-      "phone": "5599999999999",
-      "created_at": "2022-05-31T22:13:03.326-03:00",
-      "updated_at": "2022-08-19T14:03:25.991-03:00",
-      "uuid": "91fca8f9-439c-476f-bf93-75b3707b9f6d"
-    },
-    "customer_uuid": "91fca8f9-439c-476f-bf93-75b3707b9f6d",
-    "merchant_uuid": "3cf0a7f5-6fa7-479f-8772-fa5b9f17829a",
-    "recurrence_uuid": "4d804ec9-4dbd-4eba-a207-820ea61e2bd2",
+    "whatsapp_invoice_status": "no_state",
+    "interest_fine": null,
+    "interest_fee": null,
+    "expiration_date": "2024-09-21",
+    "can_issue": true,
+    "source": "base",
+    "nfse_policy": "no_nfse",
     "payments": [
       {
-        "status": "paid",
-        "due_date": "2022-09-09",
-        "amount_billed": 150.0,
+        "status": "cancelled",
+        "due_date": "2024-07-23",
+        "amount_billed": "1023.4",
         "date_paid": null,
-        "amount_paid": 0.0,
-        "bank_fee": null,
-        "fee": null,
-        "paymentable_type": null,
-        "created_at": "2022-10-17T16:43:04.460-03:00",
-        "updated_at": "2022-10-17T16:43:04.460-03:00",
-        "payment_type": "credit_card",
-        "uuid": "39413596-7763-4780-a3d2-440fe0ff0ae1",
+        "amount_paid": "0.0",
+        "fee": "0.0",
+        "created_at": "2024-07-23T21:01:39.971-03:00",
+        "updated_at": "2024-07-24T06:00:38.497-03:00",
+        "payment_type": "boleto_pix",
+        "uuid": "a7b4c3d9-2e6f-4d9b-81f6-9a8e7f5b2c4d",
+        "date_no_payment": "2024-07-24",
+        "modified": null,
+        "paymentable": {
+          "emv": "00020101021226820014BR.GOV.BCB.PIX2560api.itau/pix/qr/v2/cobv/6d59c7e1-13d9-4d57-8323-4b27fef18f92x204000053039865802BR5915EXEMPLAR LTDA6008CITY62070503***6304F8C9",
+          "expiration_date": "2024-09-21T23:59:59.999-03:00",
+          "status": "canceled"
+        },
+        "customer_uuid": "12abf34d-9e8f-4d4b-81c3-45e3f6d7a1a9",
+        "merchant_uuid": "f6c8d7e3-4d2b-4a5e-b9e8-8c6f7d9a1b5d",
+        "billing_uuid": "d9e8a3c2-b45a-4a98-b9f7-f4b8d9c1a5ef"
+      },
+      {
+        "status": "paid",
+        "due_date": "2024-07-23",
+        "amount_billed": "1023.4",
+        "date_paid": "2024-07-23",
+        "amount_paid": "1023.4",
+        "fee": "2.99",
+        "created_at": "2024-07-23T21:01:39.461-03:00",
+        "updated_at": "2024-07-24T06:00:37.197-03:00",
+        "payment_type": "boleto",
+        "uuid": "c3b8d7a1-4e5f-4b9d-93e6-f1b7c8a2d9e4",
         "date_no_payment": null,
         "modified": null,
-        "customer_uuid": "91fca8f9-439c-476f-bf93-75b3707b9f6d",
-        "merchant_uuid": "3cf0a7f5-6fa7-479f-8772-fa5b9f17829a",
-        "billing_uuid": "54dc74ef-72c9-4d88-a444-3ef49c4513ad"
+        "paymentable": {
+          "barcode": "23794876500002000000001370065543682900050123",
+          "line": "23794.87650  00670.065543  37000.050123  5  98100002000000",
+          "our_number": "00765436829",
+          "status": "succeeded"
+        },
+        "customer_uuid": "12abf34d-9e8f-4d4b-81c3-45e3f6d7a1a9",
+        "merchant_uuid": "f6c8d7e3-4d2b-4a5e-b9e8-8c6f7d9a1b5d",
+        "billing_uuid": "d9e8a3c2-b45a-4a98-b9f7-f4b8d9c1a5ef"
       }
-    ]
+    ],
+    "customer": {
+      "status": "active",
+      "name": "Alex Ribeiro",
+      "nickname": null,
+      "document": "57891234567",
+      "email": "contact@example.com",
+      "phone": "5531998765432",
+      "created_at": "2024-07-23T20:26:51.691-03:00",
+      "updated_at": "2024-07-23T20:26:51.691-03:00",
+      "uuid": "12abf34d-9e8f-4d4b-81c3-45e3f6d7a1a9",
+      "source": "link_customer"
+    },
+    "customer_uuid": "12abf34d-9e8f-4d4b-81c3-45e3f6d7a1a9",
+    "merchant_uuid": "f6c8d7e3-4d2b-4a5e-b9e8-8c6f7d9a1b5d",
+    "recurrence_uuid": null,
+    "amount_updated": 0.1023e4,
+    "nfse_status": "not_scheduled"
   }
 }
 ```
@@ -144,3 +180,70 @@ Exemplo de payload para Transfers:
   }
 }
 ```
+
+### NFSe
+
+Notas Fiscais de Serviço Eletrônicas (NFSe) são documentos fiscais eletrônicos utilizados para registrar a prestação de serviços. Elas formalizam a transação entre o prestador e o tomador de serviços, e são obrigatórias para diversos tipos de serviços.
+
+Os eventos de **NFSe** representam os diferentes estados de uma nota fiscal e são descritos da seguinte forma:
+
+- **nfse.pending**: A nota fiscal está pendente e ainda não foi emitida.
+- **nfse.issued**: A nota fiscal foi emitida, mas ainda não foi confirmada.
+- **nfse.confirmed**: A nota fiscal foi confirmada e está validada.
+- **nfse.canceled**: A nota fiscal foi cancelada.
+- **nfse.failed**: A emissão da nota fiscal falhou.
+
+Exemplo de payload para NFSe:
+```json
+{
+  "event": "nfse.confirmed",
+  "payload": {
+    "uuid": "9f47d8b6-9d5f-4b6e-9a85-3e6e4a5e3e8c",
+    "status": "confirmed",
+    "issue_type": "on_demand",
+    "rps_number": "5813",
+    "rps_serie": "B",
+    "nfse_number": "4567",
+    "verification_code": "D4F5G6HI",
+    "url_pdf": "https://example.com/files/12345678901234_56789/202406/DANFSEs/NFSe1234567890123456789-4567-D4F5G6HI.pdf",
+    "url_xml": "https://example.com/api/files/12345678901234_56789/202406/XMLsNFSe/1234567890123456789-4567-D4F5G6HI-nfse.xml",
+    "created_at": "2024-06-15T10:30:20.123-03:00",
+    "updated_at": "2024-06-15T10:31:15.234-03:00",
+    "url_danfe": "https://example.com/security/pdf/?identifier=1234567",
+    "status_detail": null,
+    "nfse_billings": [],
+    "customer": {
+      "status": "active",
+      "name": "LOJA EXEMPLO LTDA",
+      "nickname": "Loja Exemplo",
+      "document": "12345678000195",
+      "email": "contato@lojaexemplo.com.br",
+      "phone": "55912345678",
+      "created_at": "2024-05-15T08:20:31.123-03:00",
+      "updated_at": "2024-05-15T08:20:31.123-03:00",
+      "uuid": "abcdef12-3456-7890-abcd-ef1234567890"
+    },
+    "nfse_item": {
+      "uuid": "23456789-abcdef-1234-5678-abcdef123456",
+      "iss_retention": false,
+      "description": "Consultoria em marketing digital.",
+      "amount": "250.0",
+      "created_at": "2024-06-15T10:30:20.234-03:00",
+      "updated_at": "2024-06-15T10:30:20.234-03:00",
+      "nature_operation": "tributacao_no_municipio",
+      "nfse_issuer_service": {
+        "uuid": "34567890-bcde-1234-5678-cdef12345678",
+        "code": "02.03",
+        "description": "Serviços de consultoria em gestão empresarial",
+        "created_at": "2024-05-10T09:00:00.000-03:00",
+        "updated_at": "2024-05-10T09:00:00.000-03:00",
+        "status": "active",
+        "cnae": "7022000"
+      }
+    },
+    "customer_uuid": "abcdef12-3456-7890-abcd-ef1234567890",
+    "merchant_uuid": "12345678-9abc-def0-1234-56789abcdef0",
+    "nfse_issuer_uuid": "09876543-21fe-dcba-8765-4321fedcba98",
+    "nfse_uuid": "9f47d8b6-9d5f-4b6e-9a85-3e6e4a5e3e8c"
+  }
+}
