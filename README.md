@@ -126,6 +126,10 @@ Exemplo de payload para Billings:
       "description": "Descrição do produto",
       "amount": "2000.0"
     },
+    "product_link": {
+      "uuid": "7c82fd-dad0-454b-9fea-4e99asdsa83",
+      "title": "Título do link"
+    }, 
     "customer_uuid": "12abf34d-9e8f-4d4b-81c3-45e3f6d7a1a9",
     "merchant_uuid": "f6c8d7e3-4d2b-4a5e-b9e8-8c6f7d9a1b5d",
     "recurrence_uuid": null,
