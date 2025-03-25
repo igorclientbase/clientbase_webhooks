@@ -27,8 +27,6 @@ Os eventos de **Billings** são relacionados às cobranças emitidas. Cada statu
 - **billing.cancelled**: Cobrança foi cancelada.
 
 Exemplo de payload para Billings:
-<details>
-<summary>Clique para expandir</summary>
 
 ```json
 {
@@ -172,7 +170,6 @@ Exemplo de payload para Billings:
   }
 }
 ```
-</details>
 
 ### Recurrences
 Os eventos de **Recurrences** são relacionados às recorrências de pagamento. Cada status representa um estágio diferente no ciclo de vida da recorrência:
@@ -183,8 +180,6 @@ Os eventos de **Recurrences** são relacionados às recorrências de pagamento. 
 - **recurrence.finished**: Recorrência foi finalizada após completar todos os ciclos.
 
 Exemplo de payload para Recurrences:
-<details>
-<summary>Clique para expandir</summary>
 
 ```json
 {
@@ -352,7 +347,6 @@ Exemplo de payload para Recurrences:
   }
 }
 ```
-</details>
 
 ### Transfers
 Os eventos de **Transfers** são relacionados às transferências dos valores recebidos para a conta de recebimento do merchant. Cada status indica um estado específico da transferência:
@@ -364,8 +358,6 @@ Os eventos de **Transfers** são relacionados às transferências dos valores re
 - **transfer.confirmed**: Transferência foi confirmada.
 
 Exemplo de payload para Transfers:
-<details>
-<summary>Clique para expandir</summary>
 
 ```json
 {
@@ -409,7 +401,6 @@ Exemplo de payload para Transfers:
   }
 }
 ```
-</details>
 
 ### NFSe
 
