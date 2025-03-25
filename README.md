@@ -1,4 +1,3 @@
-
 # Clientbase - Simplifique a Gestão de Clientes e Cobranças Recorrentes
 
 **Clientbase** oferece uma solução completa para quem precisa gerenciar clientes e cobranças de forma eficiente e automatizada. Com funcionalidades que vão desde o cadastro e assinatura digital de contratos até a emissão de notas fiscais e notificações automatizadas, a ClientBase garante uma gestão financeira simplificada e eficaz para diversos setores como escolas, academias, agências, contabilidade e SaaS.
@@ -28,6 +27,9 @@ Os eventos de **Billings** são relacionados às cobranças emitidas. Cada statu
 - **billing.cancelled**: Cobrança foi cancelada.
 
 Exemplo de payload para Billings:
+<details>
+<summary>Clique para expandir</summary>
+
 ```json
 {
   "event": "billing.paid",
@@ -60,6 +62,38 @@ Exemplo de payload para Billings:
     "can_issue": true,
     "source": "base",
     "nfse_policy": "no_nfse",
+    "billing_items": [
+      {
+        "uuid": "6918256d-4648-4993-90c7-dabbc43e3f36",
+        "description": null,
+        "amount_billed": "540.0",
+        "amount_unit": "90.0",
+        "quantity": "6.0",
+        "billable_type": "Billing",
+        "created_at": "2024-07-23T21:01:39.454-03:00",
+        "updated_at": "2024-07-23T21:01:39.454-03:00",
+        "product": {
+          "uuid": "f1315678-4265-4191-b566-d88638991321",
+          "name": "Consultoria Avançada",
+          "amount": "90.0"
+        }
+      },
+      {
+        "uuid": "e2e1f3c2-43d7-40bc-b397-fb95bb7f114a",
+        "description": null,
+        "amount_billed": "483.4",
+        "amount_unit": "241.7",
+        "quantity": "2.0",
+        "billable_type": "Billing",
+        "created_at": "2024-07-23T21:01:39.458-03:00",
+        "updated_at": "2024-07-23T21:01:39.458-03:00",
+        "product": {
+          "uuid": "c949e6ce-70b4-4ac8-a197-a47582f9f021",
+          "name": "Inscrição Premium",
+          "amount": "241.7"
+        }
+      }
+    ],
     "payments": [
       {
         "status": "cancelled",
@@ -138,6 +172,187 @@ Exemplo de payload para Billings:
   }
 }
 ```
+</details>
+
+### Recurrences
+Os eventos de **Recurrences** são relacionados às recorrências de pagamento. Cada status representa um estágio diferente no ciclo de vida da recorrência:
+
+- **recurrence.pending**: Recorrência pendente, aguardando ativação.
+- **recurrence.active**: Recorrência ativa e gerando cobranças.
+- **recurrence.cancelled**: Recorrência foi cancelada.
+- **recurrence.finished**: Recorrência foi finalizada após completar todos os ciclos.
+
+Exemplo de payload para Recurrences:
+<details>
+<summary>Clique para expandir</summary>
+
+```json
+{
+  "event": "recurrence.active",
+  "payload": {
+    "uuid": "4ca92d00-c214-494e-ae62-f021cc5c462b",
+    "status": "active",
+    "frequency": "monthly",
+    "total_cycles": 0,
+    "due_day": 25,
+    "first_due_date": "2025-03-25",
+    "amount": "806.64",
+    "interest_policy": "custom",
+    "discount_days": 0,
+    "discount_amount": "0.0",
+    "description": null,
+    "created_at": "2025-03-25T13:52:14.441-03:00",
+    "updated_at": "2025-03-25T13:52:16.368-03:00",
+    "payment_type": "pix",
+    "discount_policy": "tiers",
+    "current_cycle": 1,
+    "interest_fine": "2.0",
+    "interest_fee": "1.0",
+    "credit_card_recurring": false,
+    "recurrence_type": "constant",
+    "nfse_policy": "no_nfse",
+    "limit_days_for_payment": 60,
+    "product_quantity": 1,
+    "discounts": [
+      {
+        "uuid": "b3ee9d1b-a8e8-4fcc-928a-a5521be26f83",
+        "policy": "fixed",
+        "days": 0,
+        "amount": "10.0",
+        "created_at": "2025-03-25T13:52:14.451-03:00",
+        "updated_at": "2025-03-25T13:52:14.451-03:00",
+        "discountable_type": "Recurrence"
+      }
+    ],
+    "customer": {
+      "status": "active",
+      "name": "João Silva",
+      "nickname": null,
+      "document": "12345678900",
+      "email": "joao.silva@example.com",
+      "phone": "5511999999999",
+      "created_at": "2025-03-19T14:52:59.822-03:00",
+      "updated_at": "2025-03-19T14:52:59.822-03:00",
+      "uuid": "169f912c-7d4d-489f-9622-3c0ca3e3c9d3",
+      "source": "product_link",
+      "email_block": 0
+    },
+    "billing_items": [
+      {
+        "uuid": "6918256d-4648-4993-90c7-dabbc43e3f36",
+        "description": null,
+        "amount_billed": "540.0",
+        "amount_unit": "90.0",
+        "quantity": "6.0",
+        "billable_type": "Recurrence",
+        "created_at": "2025-03-25T13:52:14.454-03:00",
+        "updated_at": "2025-03-25T13:52:14.454-03:00",
+        "product": {
+          "uuid": "f1315678-4265-4191-b566-d88638991321",
+          "name": "Produto A",
+          "amount": "90.0"
+        }
+      },
+      {
+        "uuid": "e2e1f3c2-43d7-40bc-b397-fb95bb7f114a",
+        "description": null,
+        "amount_billed": "266.64",
+        "amount_unit": "22.22",
+        "quantity": "12.0",
+        "billable_type": "Recurrence",
+        "created_at": "2025-03-25T13:52:14.458-03:00",
+        "updated_at": "2025-03-25T13:52:14.458-03:00",
+        "product": {
+          "uuid": "c949e6ce-70b4-4ac8-a197-a47582f9f021",
+          "name": "Produto B",
+          "amount": "22.22"
+        }
+      }
+    ],
+    "billings": [
+      {
+        "status": "pending",
+        "description": null,
+        "due_date": "2026-02-25",
+        "amount_billed": "806.64",
+        "interest_policy": "custom",
+        "discount_policy": "tiers",
+        "discount_days": 0,
+        "discount_amount": "0.0",
+        "created_at": "2025-03-25T13:52:16.282-03:00",
+        "updated_at": "2025-03-25T13:52:16.282-03:00",
+        "uuid": "62233b40-fa89-4508-a79c-b8505db7128e",
+        "recurrence_cycle": 12,
+        "dirty": false,
+        "payment_type": "pix",
+        "amount_paid": "0.0",
+        "date_paid": null,
+        "antecipated": false,
+        "issued": false,
+        "viewed": false,
+        "email_invoice_status": "no_state",
+        "sms_invoice_status": "no_state",
+        "whatsapp_invoice_status": "no_state",
+        "interest_fine": "2.0",
+        "interest_fee": "1.0",
+        "expiration_date": "2026-04-26",
+        "can_issue": true,
+        "source": "base",
+        "nfse_policy": "no_nfse",
+        "issue_date": "2026-02-13",
+        "product_quantity": 1,
+        "billing_items": [
+          {
+            "uuid": "45ce11ae-ccec-45a5-b569-f153b44637da",
+            "description": null,
+            "amount_billed": "540.0",
+            "amount_unit": "90.0",
+            "quantity": "6.0",
+            "billable_type": "Billing",
+            "created_at": "2025-03-25T13:52:16.296-03:00",
+            "updated_at": "2025-03-25T13:52:16.296-03:00",
+            "product": {
+              "uuid": "f1315678-4265-4191-b566-d88638991321",
+              "name": "Produto A",
+              "amount": "90.0"
+            }
+          },
+          {
+            "uuid": "8bb8ebb8-4852-4dca-910b-8c2ab9418c51",
+            "description": null,
+            "amount_billed": "266.64",
+            "amount_unit": "22.22",
+            "quantity": "12.0",
+            "billable_type": "Billing",
+            "created_at": "2025-03-25T13:52:16.300-03:00",
+            "updated_at": "2025-03-25T13:52:16.300-03:00",
+            "product": {
+              "uuid": "c949e6ce-70b4-4ac8-a197-a47582f9f021",
+              "name": "Produto B",
+              "amount": "22.22"
+            }
+          }
+        ],
+        "customer_uuid": "169f912c-7d4d-489f-9622-3c0ca3e3c9d3",
+        "merchant_uuid": "3cf0a7f5-6fa7-479f-8772-fa5b9f17829a",
+        "recurrence_uuid": "4ca92d00-c214-494e-ae62-f021cc5c462b"
+      }
+    ],
+    "customer_uuid": "169f912c-7d4d-489f-9622-3c0ca3e3c9d3",
+    "merchant_uuid": "3cf0a7f5-6fa7-479f-8772-fa5b9f17829a",
+    "recurrence_plan": null,
+    "historic": [
+      {
+        "event": "Criação",
+        "description": "Recorrência foi criada.",
+        "date_change": "2025-03-25T13:52:14.441-03:00",
+        "user": "admin@example.com"
+      }
+    ]
+  }
+}
+```
+</details>
 
 ### Transfers
 Os eventos de **Transfers** são relacionados às transferências dos valores recebidos para a conta de recebimento do merchant. Cada status indica um estado específico da transferência:
@@ -149,6 +364,9 @@ Os eventos de **Transfers** são relacionados às transferências dos valores re
 - **transfer.confirmed**: Transferência foi confirmada.
 
 Exemplo de payload para Transfers:
+<details>
+<summary>Clique para expandir</summary>
+
 ```json
 {
   "event": "transfer.confirmed",
@@ -191,6 +409,7 @@ Exemplo de payload para Transfers:
   }
 }
 ```
+</details>
 
 ### NFSe
 
