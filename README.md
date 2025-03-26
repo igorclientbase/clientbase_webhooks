@@ -178,12 +178,13 @@ Os eventos de **Recurrences** são relacionados às recorrências de pagamento. 
 - **recurrence.active**: Recorrência ativa e gerando cobranças.
 - **recurrence.cancelled**: Recorrência foi cancelada.
 - **recurrence.finished**: Recorrência foi finalizada após completar todos os ciclos.
+- **recurrence.updated**: Recorrência foi atualizada com novas informações.
 
 Exemplo de payload para Recurrences:
 
 ```json
 {
-  "event": "recurrence.active",
+  "event": "recurrence.update",
   "payload": {
     "uuid": "4ca92d00-c214-494e-ae62-f021cc5c462b",
     "status": "active",
@@ -341,6 +342,12 @@ Exemplo de payload para Recurrences:
         "event": "Criação",
         "description": "Recorrência foi criada.",
         "date_change": "2025-03-25T13:52:14.441-03:00",
+        "user": "admin@example.com"
+      },
+      {
+        "event": "Atualização",
+        "description": "Recorrência foi atualizada com novos valores e políticas.",
+        "date_change": "2025-03-25T14:30:00.000-03:00",
         "user": "admin@example.com"
       }
     ]
