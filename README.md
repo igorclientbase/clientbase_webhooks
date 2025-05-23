@@ -20,6 +20,7 @@ Os eventos de **Billings** são relacionados às cobranças emitidas. Cada statu
 - **billing.pending**: Cobrança pendente, ainda não foi emitida.
 - **billing.created_payment**: Status intermediário, cobrança está sendo aberta para pagamento.
 - **billing.open_payment**: Cobrança está aberta e aguardando pagamento.
+- **billing.overdue**: Cobrança está em atraso. Data de Vencimento + 1 dia.
 - **billing.expiring**: Cobrança não foi paga e solicitamos os cancelamentos dos payments da fatura. (boleto, pix e/ou cartão).
 - **billing.no_payment**: Cobrança não foi paga e a fatura expirou.
 - **billing.paid**: Cobrança foi paga.
