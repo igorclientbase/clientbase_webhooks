@@ -476,3 +476,63 @@ Exemplo de payload para NFSe:
     "nfse_uuid": "9f47d8b6-9d5f-4b6e-9a85-3e6e4a5e3e8c"
   }
 }
+```
+
+### Contratos
+
+Os eventos de **Contratos** são relacionados ao ciclo de vida dos contratos digitais:
+
+- **contract.current**: Contrato totalmente assinado por todos os signatários e ativo.
+
+Exemplo de payload para Contratos:
+
+```json
+{
+  "uuid": "c9f2f1a1-3a6d-4b5f-ae3e-2a5baf13e9d2",
+  "status": "current",
+  "title": "Contrato de Prestação de Serviços Educacionais",
+  "created_at": "2025-06-10T14:22:31-03:00",
+  "updated_at": "2025-06-18T09:17:12-03:00",
+  "message": null,
+  "start_date": "2025-07-01",
+  "end_date": "2026-06-30",
+  "days_notice": 30,
+  "description": "Treinamento em programação para adolescentes",
+  "signed_at": "2025-06-15T16:45:00-03:00",
+  "expiration_date": "2025-08-01",
+  "content": null,
+  "document_file_signed": "https://example-bucket.s3.amazonaws.com/uploads/contracts/contrato_educacional.pdf",
+  "customer": {
+    "name": "João Pedro Almeida",
+    "email": "joao.p.almeida@example.com",
+    "phone": "+55 11 91234-5678",
+    "uuid": "a1b2c3d4-e5f6-7890-ab12-3456cd78ef90"
+  },
+  "signatories": [
+    {
+      "name": "João Pedro Almeida",
+      "email": "joao.p.almeida@example.com",
+      "signatory_type": "contracting_party",
+      "status": "signed"
+    },
+    {
+      "name": "Instituto Tech Jovem",
+      "email": "contato@techjovem.org.br",
+      "signatory_type": "contracted_party",
+      "status": "signed"
+    },
+    {
+      "name": "Fernanda Luz",
+      "email": "fernanda.luz@example.com",
+      "signatory_type": "witness",
+      "status": "signed"
+    }
+  ],
+  "customer_uuid": "a1b2c3d4-e5f6-7890-ab12-3456cd78ef90",
+  "merchant_uuid": "9e87d6c5-b4a3-21f0-9988-1d2c3a4b5e6f"
+}
+```
+
+---
+
+Para mais informações sobre configuração e uso dos webhooks, entre em contato com nossa equipe de suporte técnico.
