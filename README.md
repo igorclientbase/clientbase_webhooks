@@ -180,6 +180,7 @@ Os eventos de **Recurrences** são relacionados às recorrências de pagamento. 
 - **recurrence.cancelled**: Recorrência foi cancelada.
 - **recurrence.finished**: Recorrência foi finalizada após completar todos os ciclos.
 - **recurrence.updated**: Recorrência foi atualizada com novas informações.
+- **recurrence.credit_card_assigned**: Foi cadastrado um cartão de crédito na Recorrência
 
 Exemplo de payload para Recurrences:
 
