@@ -162,12 +162,143 @@ Exemplo de payload para Billings:
     "product_link": {
       "uuid": "7c82fd-dad0-454b-9fea-4e99asdsa83",
       "title": "Título do link"
-    }, 
+    },
     "customer_uuid": "12abf34d-9e8f-4d4b-81c3-45e3f6d7a1a9",
     "merchant_uuid": "f6c8d7e3-4d2b-4a5e-b9e8-8c6f7d9a1b5d",
     "recurrence_uuid": null,
     "amount_updated": 0.1023e4,
     "nfse_status": "not_scheduled"
+  }
+}
+```
+
+### Credit Card Charges
+Os eventos de **Credit Card Charges** são relacionados às tentativas de cobrança no cartão de crédito:
+
+- **credit_card_charge.failed**: Tentativa de cobrança no cartão de crédito foi recusada/falhou.
+
+Exemplo de payload para Credit Card Charges:
+
+```json
+{
+  "event": "credit_card_charge.failed",
+  "payload": {
+    "credit_card_charge": {
+      "uuid": "a1b2c3d4-5678-90ab-cdef-1234567890ab",
+      "status": "unathorized",
+      "description": "Cartão recusado - Saldo insuficiente",
+      "created_at": "2024-07-23T21:05:30.123-03:00"
+    },
+    "credit_card": {
+      "uuid": "b2c3d4e5-6789-01bc-def2-3456789012bc",
+      "last_4_digits": "1234",
+      "first_4_digits": "4111",
+      "card_brand": "visa",
+      "holder_name": "ALEX RIBEIRO",
+      "expiration_month": 12,
+      "expiration_year": 2026
+    },
+    "billing": {
+      "status": "open_payment",
+      "description": "Mensalidade - Plano Premium",
+      "due_date": "2024-07-23",
+      "amount_billed": "199.90",
+      "interest_policy": "no_interest",
+      "discount_policy": "no_discount",
+      "discount_days": 0,
+      "discount_amount": "0.0",
+      "created_at": "2024-07-20T10:00:00.000-03:00",
+      "updated_at": "2024-07-23T21:05:30.456-03:00",
+      "uuid": "d9e8a3c2-b45a-4a98-b9f7-f4b8d9c1a5ef",
+      "recurrence_cycle": 3,
+      "dirty": false,
+      "payment_type": "credit_card",
+      "amount_paid": "0.0",
+      "date_paid": null,
+      "antecipated": false,
+      "issued": true,
+      "viewed": true,
+      "email_invoice_status": "sent",
+      "sms_invoice_status": "no_state",
+      "whatsapp_invoice_status": "no_state",
+      "interest_fine": null,
+      "interest_fee": null,
+      "expiration_date": "2024-08-22",
+      "can_issue": true,
+      "source": "base",
+      "nfse_policy": "no_nfse",
+      "billing_items": [
+        {
+          "uuid": "6918256d-4648-4993-90c7-dabbc43e3f36",
+          "description": null,
+          "amount_billed": "199.90",
+          "amount_unit": "199.90",
+          "quantity": "1.0",
+          "billable_type": "Billing",
+          "created_at": "2024-07-20T10:00:00.000-03:00",
+          "updated_at": "2024-07-20T10:00:00.000-03:00",
+          "product": {
+            "uuid": "f1315678-4265-4191-b566-d88638991321",
+            "name": "Plano Premium",
+            "description": "Acesso completo a todas as funcionalidades",
+            "amount": "199.90",
+            "total_cycles": 12
+          }
+        }
+      ],
+      "payments": [
+        {
+          "status": "failed",
+          "due_date": "2024-07-23",
+          "amount_billed": "199.90",
+          "date_paid": null,
+          "amount_paid": "0.0",
+          "fee": "0.0",
+          "created_at": "2024-07-23T21:05:00.000-03:00",
+          "updated_at": "2024-07-23T21:05:30.123-03:00",
+          "payment_type": "credit_card",
+          "uuid": "a7b4c3d9-2e6f-4d9b-81f6-9a8e7f5b2c4d",
+          "date_no_payment": null,
+          "modified": null,
+          "customer_uuid": "12abf34d-9e8f-4d4b-81c3-45e3f6d7a1a9",
+          "merchant_uuid": "f6c8d7e3-4d2b-4a5e-b9e8-8c6f7d9a1b5d",
+          "billing_uuid": "d9e8a3c2-b45a-4a98-b9f7-f4b8d9c1a5ef"
+        }
+      ],
+      "customer": {
+        "status": "active",
+        "name": "Alex Ribeiro",
+        "nickname": null,
+        "document": "57891234567",
+        "email": "contact@example.com",
+        "phone": "5531998765432",
+        "created_at": "2024-07-23T20:26:51.691-03:00",
+        "updated_at": "2024-07-23T20:26:51.691-03:00",
+        "uuid": "12abf34d-9e8f-4d4b-81c3-45e3f6d7a1a9",
+        "source": "link_customer",
+        "metadata": [],
+        "address": {
+          "street": "Rua das Flores",
+          "number": "123",
+          "complement": "Apto 45",
+          "neighborhood": "Centro",
+          "city": "São Paulo",
+          "state": "SP",
+          "zip_code": "01234-567"
+        }
+      },
+      "credit_card_charges": [
+        {
+          "uuid": "a1b2c3d4-5678-90ab-cdef-1234567890ab",
+          "status": "unathorized",
+          "description": "Cartão recusado - Saldo insuficiente",
+          "created_at": "2024-07-23T21:05:30.123-03:00"
+        }
+      ],
+      "customer_uuid": "12abf34d-9e8f-4d4b-81c3-45e3f6d7a1a9",
+      "merchant_uuid": "f6c8d7e3-4d2b-4a5e-b9e8-8c6f7d9a1b5d",
+      "recurrence_uuid": "c4d5e6f7-8901-23cd-ef45-6789012345cd"
+    }
   }
 }
 ```
