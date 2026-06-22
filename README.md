@@ -312,12 +312,14 @@ Os eventos de **Recurrences** são relacionados às recorrências de pagamento. 
 - **recurrence.finished**: Recorrência foi finalizada após completar todos os ciclos.
 - **recurrence.updated**: Recorrência foi atualizada com novas informações.
 - **recurrence.credit_card_assigned**: Foi cadastrado um cartão de crédito na Recorrência
+- **recurrence.readjusted**: Um reajuste foi aplicado na recorrência, alterando o valor.
+- **recurrence.adjustment_pending**: Há um reajuste manual aguardando confirmação, com data prevista para o próximo mês.
 
 Exemplo de payload para Recurrences:
 
 ```json
 {
-  "event": "recurrence.update",
+  "event": "recurrence.updated",
   "payload": {
     "uuid": "4ca92d00-c214-494e-ae62-f021cc5c462b",
     "status": "active",
@@ -484,6 +486,57 @@ Exemplo de payload para Recurrences:
         "user": "admin@example.com"
       }
     ]
+  }
+}
+```
+
+#### recurrence.readjusted
+
+Disparado quando um reajuste é efetivamente aplicado na recorrência (alterando o valor). O payload é o mesmo de `recurrence.updated` (recorrência completa), acrescido do bloco `last_adjustment` com os detalhes do reajuste aplicado:
+
+```json
+{
+  "event": "recurrence.readjusted",
+  "payload": {
+    "uuid": "4ca92d00-c214-494e-ae62-f021cc5c462b",
+    "status": "active",
+    "amount": "885.96",
+    "...": "demais campos da recorrência, idênticos ao recurrence.updated",
+    "last_adjustment": {
+      "adjustment_scheduled_uuid": "a1b2c3d4-1111-2222-3333-444455556666",
+      "adjustment_type": "ipca",
+      "index_name": "IPCA",
+      "percentage_applied": "9.83",
+      "amount_before": "806.64",
+      "amount_after": "885.96",
+      "applied_at": "2025-04-01T03:00:00.000-03:00"
+    }
+  }
+}
+```
+
+> O campo `adjustment_type` pode ser `customized` (percentual definido pelo merchant), `ipca` ou `igpm`. Quando for `customized`, `index_name` retorna `Definido pelo usuário`.
+
+#### recurrence.adjustment_pending
+
+Disparado quando há um reajuste **manual** (que aguarda confirmação) com data prevista para o próximo mês. Serve como aviso prévio para que o merchant confirme o reajuste. É enviado uma vez por recorrência dentro do mês. O payload é a recorrência completa (mesmo formato de `recurrence.updated`), incluindo o bloco `adjustment_scheduled` com a data e o percentual previstos.
+
+```json
+{
+  "event": "recurrence.adjustment_pending",
+  "payload": {
+    "uuid": "4ca92d00-c214-494e-ae62-f021cc5c462b",
+    "status": "active",
+    "amount": "806.64",
+    "...": "demais campos da recorrência, idênticos ao recurrence.updated",
+    "adjustment_scheduled": {
+      "uuid": "a1b2c3d4-1111-2222-3333-444455556666",
+      "adjustment_type": "igpm",
+      "frequency": "annual",
+      "percentage_value": "7.50",
+      "automatic_application": false,
+      "next_adjustment_date": "2025-05-01"
+    }
   }
 }
 ```
