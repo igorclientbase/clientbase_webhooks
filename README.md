@@ -1,8 +1,8 @@
-# Clientbase - Simplifique a Gestão de Clientes e Cobranças Recorrentes
+# Base de Clientes - Simplifique a Gestão de Clientes e Cobranças Recorrentes
 
-**Clientbase** oferece uma solução completa para quem precisa gerenciar clientes e cobranças de forma eficiente e automatizada. Com funcionalidades que vão desde o cadastro e assinatura digital de contratos até a emissão de notas fiscais e notificações automatizadas, a ClientBase garante uma gestão financeira simplificada e eficaz para diversos setores como escolas, academias, agências, contabilidade e SaaS.
+**Base de Clientes** oferece uma solução completa para quem precisa gerenciar clientes e cobranças de forma eficiente e automatizada. Com funcionalidades que vão desde o cadastro e assinatura digital de contratos até a emissão de notas fiscais e notificações automatizadas, a Base de Clientes garante uma gestão financeira simplificada e eficaz para diversos setores como escolas, academias, agências, contabilidade e SaaS.
 
-Para mais informações, visite nosso site: [Clientbase](https://clientbase.com.br).
+Para mais informações, visite nosso site: [Base de Clientes](https://basedeclientes.com.br).
 
 ---
 
