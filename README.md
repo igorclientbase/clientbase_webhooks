@@ -173,9 +173,14 @@ Exemplo de payload para Billings:
 ```
 
 ### Credit Card Charges
-Os eventos de **Credit Card Charges** são relacionados às tentativas de cobrança no cartão de crédito:
+Os eventos de **Credit Card Charges** cobrem tanto as tentativas de cobrança no cartão de crédito quanto as falhas no cadastro do cartão:
 
-- **credit_card_charge.failed**: Tentativa de cobrança no cartão de crédito foi recusada/falhou.
+- **credit_card_charge.failed**: Falha em uma operação de cartão de crédito. Disparado em três situações:
+  - **Cobrança recusada** no pagamento de uma cobrança.
+  - **Cobrança recorrente recusada** na retentativa automática de uma assinatura.
+  - **Erro ao cadastrar o cartão** (falha na tokenização junto ao adquirente), quando o cliente informa os dados do cartão para pagar uma cobrança.
+
+O campo `description` identifica o motivo. Nos casos de erro de cadastro, os valores possíveis são `Número de cartão inválido`, `Cartão recusado pelo banco emissor` e `Falha no cadastro do cartão`.
 
 Exemplo de payload para Credit Card Charges:
 
